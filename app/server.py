@@ -81,10 +81,10 @@ async def analyze(request):
     # return JSONResponse({'result': str(prediction)})
 
     pred_class,pred_idx,outputs = learn.predict(img)
-    output = str(pred_class) + '\\n \\nProbabilities: \\n' 
+    output = str(pred_class) + '\r \rProbabilities: \r' 
     for idx, disc in enumerate(outputs):
         output += str(classes[idx]) + ': '
-        output += str(round(disc.item()*100,1)) + '%' + '\\n'
+        output += str(round(disc.item()*100,1)) + '%' + '\r'
     return JSONResponse({'result': output})
 
 
