@@ -8,10 +8,34 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1-gHpjXQmARxsKiax-mcpU1hssqwOm2a3'
+export_file_name = 'model.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Discmania_P2',
+ 'Discraft_Buzzz',
+ 'Dynamic Discs_Escape',
+ 'Dynamic Discs_Judge',
+ 'Dynamic Discs_Truth',
+ 'Gateway_Wizard',
+ 'Innova_Aviar',
+ 'Innova_Beast',
+ 'Innova_Boss',
+ 'Innova_Destroyer',
+ 'Innova_Firebird',
+ 'Innova_Katana',
+ 'Innova_Leopard',
+ 'Innova_Mako3',
+ 'Innova_Roc',
+ 'Innova_Roc3',
+ 'Innova_Shark',
+ 'Innova_Shryke',
+ 'Innova_Sidewinder',
+ 'Innova_Teebird',
+ 'Innova_Tern',
+ 'Innova_Thunderbird',
+ 'Innova_Valkyrie',
+ 'Innova_Wraith',
+ 'Westside_Harp']
 path = Path(__file__).parent
 
 app = Starlette()
