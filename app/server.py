@@ -85,7 +85,7 @@ async def analyze(request):
     for idx, disc in enumerate(outputs):
         output += str(classes[idx]) + ': '
         output += str(round(disc.item()*100,1)) + '%' + '\\n'
-    return JSONResponse({'Prediction': output})
+    return JSONResponse({'Result': output})
 
 
 
