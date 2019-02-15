@@ -7,10 +7,34 @@
 <body>
 <div>
     <div class='center'>
-        <div class='title'>Classify Bear Images 🐻</div>
+        <div class='title'>Identify your Disc Golf Discs</div>
         <p>
-            Use images of <strong>teddy</strong> bears, <strong>black</strong> bears, <strong>grizzly</strong> bears, or
-            all three!
+            Upload Images of any of the following discs: <br />
+            Discmania P2, <br />
+			 Discraft Buzzz, <br />
+			 Dynamic Discs Escape, <br />
+			 Dynamic Discs Judge, <br />
+			 Dynamic Discs Truth, <br />
+			 Gateway Wizard, <br />
+			 Innova Aviar, <br />
+			 Innova Beast, <br />
+			 Innova Boss, <br />
+			 Innova Destroyer, <br />
+			 Innova Firebird, <br />
+			 Innova Katana, <br />
+			 Innova Leopard, <br />
+			 Innova Mako3, <br />
+			 Innova Roc, <br />
+			 Innova Roc3, <br />
+			 Innova Shark, <br />
+			 Innova Shryke, <br />
+			 Innova Sidewinder, <br />
+			 Innova Teebird, <br />
+			 Innova Tern, <br />
+			 Innova Thunderbird, <br />
+			 Innova Valkyrie, <br />
+			 Innova Wraith, <br />
+			 Westside Harp 
         </p>
         <div class='content'>
             <div class='no-display'>
@@ -21,7 +45,7 @@
                        accept='image/*'
                        onchange='showPicked(this)'>
             </div>
-            <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+            <button class='choose-file-button' type='button' onclick='showPicker()'>Upload Disc Golf Disc Image</button>
             <div class='upload-label'>
                 <label id='upload-label'>No file chosen</label>
             </div>
@@ -29,7 +53,7 @@
                 <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
             </div>
             <div class='analyze'>
-                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Identify Disc Name</button>
             </div>
             <div class='result-label'>
                 <label id='result-label'></label>
