@@ -7,35 +7,59 @@
 <body>
 <div>
     <div class='center'>
-        <div class='title'>Identify your Disc Golf Discs</div>
-        <p>
-            Upload Images of any of the following discs: <br />
-            Discmania P2, <br />
-			 Discraft Buzzz, <br />
-			 Dynamic Discs Escape, <br />
-			 Dynamic Discs Judge, <br />
-			 Dynamic Discs Truth, <br />
-			 Gateway Wizard, <br />
-			 Innova Aviar, <br />
-			 Innova Beast, <br />
-			 Innova Boss, <br />
-			 Innova Destroyer, <br />
-			 Innova Firebird, <br />
-			 Innova Katana, <br />
-			 Innova Leopard, <br />
-			 Innova Mako3, <br />
-			 Innova Roc, <br />
-			 Innova Roc3, <br />
-			 Innova Shark, <br />
-			 Innova Shryke, <br />
-			 Innova Sidewinder, <br />
-			 Innova Teebird, <br />
-			 Innova Tern, <br />
-			 Innova Thunderbird, <br />
-			 Innova Valkyrie, <br />
-			 Innova Wraith, <br />
-			 Westside Harp 
-        </p>
+        <div class='title'>Disc Golf Disc Image Classifier</div>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+        </head>
+        <body>
+
+        <h2>Upload any of the following 25 Disc Brands from 6 Manufacturers </h2>
+
+        <table>
+          <tr>
+            <th>Manufacturer</th>
+            <th>Brand</th>
+          </tr>
+          <tr>
+            <td>Discmania (1)</td>
+            <td>P2</td>
+          </tr>
+          <tr>
+            <td>Discraft (1)</td>
+            <td>Buzzz</td>
+          </tr>
+          <tr>
+            <td>Dynamic Discs (3)</td>
+            <td> Escape, Judge, Truth</td>
+          </tr>
+          <tr>
+            <td>Gateway (1)</td>
+            <td>Wizard</td>
+          </tr>
+          <tr>
+            <td>Innova (18)</td>
+            <td>Aviar, Beast, Boss, Destroyer, Firebird, Katana, Leopard, Mako3, Roc, Roc3, Shark, Shryke, Sidewinder, Teebird, Tern, Thunderbird, Valkyrie, Wraith</td>
+          </tr>
+          <tr>
+            <td>Westside (1)</td>
+            <td>Harp</td>
+          </tr>
+        </table>
         <div class='content'>
             <div class='no-display'>
                 <input id='file-input'
@@ -53,7 +77,7 @@
                 <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
             </div>
             <div class='analyze'>
-                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Identify Disc Name</button>
+                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Identify Disc Type</button>
             </div>
             <div class='result-label'>
                 <label id='result-label'></label>
