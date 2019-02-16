@@ -81,10 +81,16 @@ async def analyze(request):
     # return JSONResponse({'result': str(prediction)})
 
     pred_class,pred_idx,outputs = learn.predict(img)
+    # output = str(pred_class) + '<br> <br>Probabilities: <br>' 
+    # for idx, disc in enumerate(outputs):
+    #     output += str(classes[idx]) + ': '
+    #     output += str(round(disc.item()*100,1)) + '%' + '<br>'
+
     output = str(pred_class) + '<br> <br>Probabilities: <br>' 
-    for idx, disc in enumerate(outputs):
+    for idx in np.argsort(-outputs):
         output += str(classes[idx]) + ': '
-        output += str(round(disc.item()*100,1)) + '%' + '<br>'
+        output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
+        
     return JSONResponse({'result': output})
 
 
