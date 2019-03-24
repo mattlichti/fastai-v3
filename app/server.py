@@ -8,8 +8,11 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1-gHpjXQmARxsKiax-mcpU1hssqwOm2a3'
-export_file_name = 'model.pkl'
+# export_file_url = 'https://drive.google.com/uc?export=download&id=1-gHpjXQmARxsKiax-mcpU1hssqwOm2a3'
+
+export_file_url = 'https://www.dropbox.com/s/k3bvbbsap4p8cno/25discs.pkl?dl=1'
+
+export_file_name = '25discs.pkl'
 
 classes = ['Discmania_P2',
  'Discraft_Buzzz',
