@@ -6,18 +6,19 @@ body {
     display: none;
 }
 
+
 .center {
     margin: auto;
     padding: 10px;
-    padding-left:50px;
-    padding-right:50px;
+    padding-left:2%;
+    padding-right:2%;
     text-align: center;
     font-size: 14px;
 }
 
 .title {
     font-size: 30px;
-    margin-top: 1em;
+    margin-top: 2px;
     margin-bottom: 1em;
     color: #262626;
 }
@@ -62,3 +63,22 @@ button.analyze-button {
 }
 
 button:focus {outline:0;}
+
+
+
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 31%;
+
+  padding: 1%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+    max-width:300px;
+
+  clear: both;
+  display: table;
+} 
