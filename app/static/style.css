@@ -77,8 +77,6 @@ button:focus {outline:0;}
 /* Clear floats after image containers */
 .row::after {
   content: "";
-    max-width:300px;
-
   clear: both;
   display: table;
 } 
