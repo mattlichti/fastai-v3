@@ -12,9 +12,6 @@ from fastai.vision import *
 
 # export_file_url = 'https://www.dropbox.com/s/k3bvbbsap4p8cno/25discs.pkl?dl=1'
 export_file_url = 'https://www.dropbox.com/s/c7k3z8rcq33buxy/75discs.pkl?dl=1'
-
-https://www.dropbox.com/s/c7k3z8rcq33buxy/75discs.pkl?dl=1
-
 export_file_name = '75discs.pkl'
 
 
