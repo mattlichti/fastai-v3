@@ -142,7 +142,6 @@ async def download_file(url, dest):
 
 async def setup_learner():
     await download_file(export_file_url, path/export_file_name)
-    await download_file(plastics_export_file_url, path/plastics_export_file_name)
     try:
         learn = load_learner(path, export_file_name)
         return learn
@@ -154,8 +153,23 @@ async def setup_learner():
         else:
             raise
 
+async def setup_plastic_learner():
+    await download_file(plastics_export_file_url, path/plastics_export_file_name)
+    try:
+        plastics_learn = load_learner(path, plastics_export_file_name)
+        return plastics_learn
+    except RuntimeError as e:
+        if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
+            print(e)
+            message = "\n\nThis model was trained with an old version of fastai and will not work in a CPU environment.\n\nPlease update the fastai library in your training environment and export your model again.\n\nSee instructions for 'Returning to work' at https://course.fast.ai."
+            raise RuntimeError(message)
+        else:
+            raise
+
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
+tasks = [asyncio.ensure_future(setup_plastic_learner())]
+
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
 
@@ -169,14 +183,8 @@ async def analyze(request):
     data = await request.form()
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    # prediction = learn.predict(img)[0]
-    # return JSONResponse({'result': str(prediction)})
 
     pred_class,pred_idx,outputs = learn.predict(img)
-    # output = str(pred_class) + '<br> <br>Probabilities: <br>' 
-    # for idx, disc in enumerate(outputs):
-    #     output += str(classes[idx]) + ': '
-    #     output += str(round(disc.item()*100,1)) + '%' + '<br>'
 
     output = str(pred_class) + '<br> <br>Probabilities: <br>' 
     for idx in np.argsort(-outputs):
