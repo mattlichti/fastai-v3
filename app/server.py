@@ -8,9 +8,6 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-# export_file_url = 'https://drive.google.com/uc?export=download&id=1-gHpjXQmARxsKiax-mcpU1hssqwOm2a3'
-
-# export_file_url = 'https://www.dropbox.com/s/k3bvbbsap4p8cno/25discs.pkl?dl=1'
 export_file_url = 'https://www.dropbox.com/s/c7k3z8rcq33buxy/75discs.pkl?dl=1'
 export_file_name = '75discs.pkl'
 
@@ -126,6 +123,10 @@ pclasses = ['Discmania C-line',
  'Westside Origio',
  'Westside Tournament',
  'Westside Vip']
+
+export_file_url = 'https://www.dropbox.com/s/8qtxued68q92may/35plastics.pkl?dl=1'
+export_file_name = '35plastics.pkl'
+classes = pclasses
 
 
 path = Path(__file__).parent
