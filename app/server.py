@@ -168,9 +168,10 @@ async def setup_plastic_learner():
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
-tasks = [asyncio.ensure_future(setup_plastic_learner())]
-
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+plastic_tasks = [asyncio.ensure_future(setup_plastic_learner())]
+plastic_learn = loop.run_until_complete(asyncio.gather(*plastic_tasks))[0]
+
 loop.close()
 
 @app.route('/')
