@@ -206,7 +206,7 @@ async def analyze_plastics(request):
 
     output = str(pred_class) + '<br> <br>Probabilities: <br>' 
     for idx in np.argsort(-outputs):
-        output += str(classes[idx]) + ': '
+        output += str(pclasses[idx]) + ': '
         output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
     return JSONResponse({'result': output})
