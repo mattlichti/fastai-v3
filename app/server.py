@@ -196,6 +196,21 @@ async def analyze(request):
         
     return JSONResponse({'result': output})
 
+@app.route('/analyze_plastics', methods=['POST'])
+async def analyze_plastics(request):
+    data = await request.form()
+    img_bytes = await (data['file'].read())
+    img = open_image(BytesIO(img_bytes))
+
+    pred_class,pred_idx,outputs = plastic_learn.predict(img)
+
+    output = str(pred_class) + '<br> <br>Probabilities: <br>' 
+    for idx in np.argsort(-outputs):
+        output += str(classes[idx]) + ': '
+        output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
+        
+    return JSONResponse({'result': output})
+
 
 
 
