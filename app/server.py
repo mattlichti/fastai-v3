@@ -182,7 +182,7 @@ async def analyze(request):
     output += '<br> <br>Top disc mold probabilities for your disc: <br>' 
     for idx in np.argsort(-outputs)[:10]:
         if outputs[idx].item()>.0005:
-            output += str(pclasses[idx]) + ': '
+            output += str(classes[idx]) + ': '
             output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
 
     return JSONResponse({'result': output})
