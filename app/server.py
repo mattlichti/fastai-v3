@@ -204,8 +204,8 @@ async def analyze_plastics(request):
 
     pred_class,pred_idx,outputs = plastic_learn.predict(img)
 
-    output = str(pred_class) + '<br> <br>Probabilities: <br>' 
-    for idx in np.argsort(-outputs):
+    output = str(pred_class) + '<br> <br>Top 5 Probabilities: <br>' 
+    for idx in np.argsort(-outputs)[:5]:
         output += str(pclasses[idx]) + ': '
         output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
