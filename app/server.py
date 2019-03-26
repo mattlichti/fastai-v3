@@ -175,7 +175,7 @@ async def analyze(request):
     pred_class,pred_idx,outputs = learn.predict(img)
 
 
-    if np.argsort(-outputs)[:10]>.75
+    if np.argsort(-outputs)[:10]>.75:
         output = 'We think your disc is: ' + str(pred_class)
     else:
         output = "Sorry, we aren't sure what kind of disc that is."
@@ -200,7 +200,7 @@ async def analyze_plastics(request):
 
     pred_class,pred_idx,outputs = plastic_learn.predict(img)
 
-    if np.argsort(-outputs)[:10]>.75
+    if np.argsort(-outputs)[:10]>.75:
         output = 'We think the plastic is: ' + str(pred_class)
     else:
         output = "Sorry, we aren't sure what kind of plastic that is."
