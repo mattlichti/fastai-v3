@@ -174,10 +174,21 @@ async def analyze(request):
 
     pred_class,pred_idx,outputs = learn.predict(img)
 
-    output = str(pred_class) + '<br> <br>Probabilities: <br>' 
+
+    if np.argsort(-outputs)[:10]>.75
+        output = 'We think your disc is: ' + str(pred_class)
+    else:
+        output = "Sorry, we aren't sure what kind of disc that is."
+    output += '<br> <br>Top disc mold probabilities for your disc: <br>' 
     for idx in np.argsort(-outputs)[:10]:
-        output += str(classes[idx]) + ': '
-        output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
+        if outputs[idx].item()>.0005:
+            output += str(pclasses[idx]) + ': '
+            output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
+
+    # output = str(pred_class) + '<br> <br>Probabilities: <br>' 
+    # for idx in np.argsort(-outputs)[:10]:
+    #     output += str(classes[idx]) + ': '
+    #     output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
     return JSONResponse({'result': output})
 
@@ -189,10 +200,13 @@ async def analyze_plastics(request):
 
     pred_class,pred_idx,outputs = plastic_learn.predict(img)
 
-    output = 'We think your disc is a' + str(pred_class) 
-    output += '<br> <br>Top Probabilities: <br>' 
+    if np.argsort(-outputs)[:10]>.75
+        output = 'We think the plastic is: ' + str(pred_class)
+    else:
+        output = "Sorry, we aren't sure what kind of plastic that is."
+    output += '<br> <br>Top plastic probabilities for your disc: <br>' 
     for idx in np.argsort(-outputs)[:10]:
-        if outputs[idx].item()>.001:
+        if outputs[idx].item()>.0005:
             output += str(pclasses[idx]) + ': '
             output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
