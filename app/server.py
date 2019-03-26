@@ -174,18 +174,16 @@ async def analyze(request):
 
     pred_class,pred_idx,outputs = learn.predict(img)
 
-    # idx = np.argsort(-outputs)[0]
-    # if outputs[idx].item()>.75:
-    #     output = 'We think your disc is: ' + str(pred_class)
-    # else:
-    #     output = "Sorry, we aren't sure what kind of disc that is."
-    # output += '<br> <br>Top disc mold probabilities for your disc: <br>' 
-    # for idx in np.argsort(-outputs)[:10]:
-    #     if outputs[idx].item()>.0005:
-    #         output += str(pclasses[idx]) + ': '
-    #         output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
-
-    output = str(pred_class)
+    idx = np.argsort(-outputs)[0]
+    if outputs[idx].item()>.75:
+        output = 'We think your disc is: ' + str(pred_class)
+    else:
+        output = "Sorry, we aren't sure what kind of disc that is."
+    output += '<br> <br>Top disc mold probabilities for your disc: <br>' 
+    for idx in np.argsort(-outputs)[:10]:
+        if outputs[idx].item()>.0005:
+            output += str(pclasses[idx]) + ': '
+            output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
 
     return JSONResponse({'result': output})
 
