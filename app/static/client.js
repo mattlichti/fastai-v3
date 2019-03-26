@@ -46,7 +46,7 @@ function analyze_plastics() {
     xhr.onload = function(e) {
         if (this.readyState === 4) {
             var response = JSON.parse(e.target.responseText);
-            el('plastic-result-label').innerHTML = `Top Prediction = ${response['result']}`;
+            el('plastic-result-label').innerHTML = `${response['result']}`;
         }
         el('analyze-plastic-button').innerHTML = 'Analyze Plastic Type';
     }

@@ -190,7 +190,7 @@ async def analyze(request):
     pred_class,pred_idx,outputs = learn.predict(img)
 
     output = str(pred_class) + '<br> <br>Probabilities: <br>' 
-    for idx in np.argsort(-outputs):
+    for idx in np.argsort(-outputs)[:10]:
         output += str(classes[idx]) + ': '
         output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
@@ -204,7 +204,7 @@ async def analyze_plastics(request):
 
     pred_class,pred_idx,outputs = plastic_learn.predict(img)
 
-    output = str(pred_class) + '<br> <br>Top 5 Probabilities: <br>' 
+    output = 'We think your disc is a' str(pred_class) + '<br> <br>Top 5 Probabilities: <br>' 
     for idx in np.argsort(-outputs)[:5]:
         output += str(pclasses[idx]) + ': '
         output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
