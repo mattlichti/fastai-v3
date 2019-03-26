@@ -26,7 +26,7 @@ function analyze() {
             var response = JSON.parse(e.target.responseText);
             el('result-label').innerHTML = `Result = ${response['result']}`;
         }
-        el('analyze-button').innerHTML = 'Analyze';
+        el('analyze-button').innerHTML = 'Predict Disc Mold';
     }
 
     var fileData = new FormData();
@@ -46,9 +46,9 @@ function analyze_plastics() {
     xhr.onload = function(e) {
         if (this.readyState === 4) {
             var response = JSON.parse(e.target.responseText);
-            el('result-label').innerHTML = `Result = ${response['result']}`;
+            el('plastic-result-label').innerHTML = `Result = ${response['result']}`;
         }
-        el('analyze-plastic-button').innerHTML = 'Analyze';
+        el('analyze-plastic-button').innerHTML = 'Predict Plastic Type';
     }
 
     var fileData = new FormData();
