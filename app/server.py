@@ -155,25 +155,10 @@ async def setup_learner():
         else:
             raise
 
-# async def setup_plastic_learner():
-#     await download_file(plastics_export_file_url, path/plastics_export_file_name)
-#     try:
-#         plastics_learn = load_learner(path, plastics_export_file_name)
-#         return plastics_learn
-#     except RuntimeError as e:
-#         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
-#             print(e)
-#             message = "\n\nThis model was trained with an old version of fastai and will not work in a CPU environment.\n\nPlease update the fastai library in your training environment and export your model again.\n\nSee instructions for 'Returning to work' at https://course.fast.ai."
-#             raise RuntimeError(message)
-#         else:
-#             raise
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn, plastic_learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
-# plastic_tasks = [asyncio.ensure_future(setup_plastic_learner())]
-# plastic_learn = loop.run_until_complete(asyncio.gather(*plastic_tasks))[0]
-
 loop.close()
 
 @app.route('/')
@@ -204,14 +189,14 @@ async def analyze_plastics(request):
 
     pred_class,pred_idx,outputs = plastic_learn.predict(img)
 
-    output = 'We think your disc is a' + str(pred_class) + '<br> <br>Top 5 Probabilities: <br>' 
-    for idx in np.argsort(-outputs)[:5]:
-        output += str(pclasses[idx]) + ': '
-        output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
+    output = 'We think your disc is a' + str(pred_class) 
+    output += '<br> <br>Top Probabilities: <br>' 
+    for idx in np.argsort(-outputs)[:10]:
+        if outputs[idx].item()>.001:
+            output += str(pclasses[idx]) + ': '
+            output += str(round(outputs[idx].item()*100,1)) + '%' + '<br>'
         
     return JSONResponse({'result': output})
-
-
 
 
 if __name__ == '__main__':
