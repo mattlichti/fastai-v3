@@ -8,9 +8,9 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://www.dropbox.com/s/c7k3z8rcq33buxy/75discs.pkl?dl=1'
-export_file_name = '75discs.pkl'
-
+# export_file_url = 'https://www.dropbox.com/s/c7k3z8rcq33buxy/75discs.pkl?dl=1'
+export_file_url = 'https://www.dropbox.com/s/kn5ocvyz1xn5qpj/75discs_19-12-06.pkl?dl=1'
+export_file_name = '75discs_19_12_06.pkl'
 
 classes = ['Axiom Envy',
  'Discmania FD',
@@ -124,8 +124,9 @@ pclasses = ['Discmania C-line',
  'Westside Tournament',
  'Westside Vip']
 
-plastics_export_file_url = 'https://www.dropbox.com/s/8qtxued68q92may/35plastics.pkl?dl=1'
-plastics_export_file_name = '35plastics.pkl'
+# plastics_export_file_url = 'https://www.dropbox.com/s/8qtxued68q92may/35plastics.pkl?dl=1'
+plastics_export_file_url = 'https://www.dropbox.com/s/mfuzmvjukaebed5/35plastics_19-12-06.pkl?dl=1'
+plastics_export_file_name = '35plastics_19_12_06.pkl'
 
 path = Path(__file__).parent
 
